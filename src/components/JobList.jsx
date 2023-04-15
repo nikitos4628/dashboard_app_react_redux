@@ -1,14 +1,15 @@
-import data from '../mock/data.json';
+import { useSelector } from 'react-redux';
 import { JobPosition } from './JobPosition';
+import { selectVisiblePositions } from 'store/positions/position-selectors';
 
-const JobList = () => {
+export const JobList = () => {
+   const jobPositions = useSelector(selectVisiblePositions);
+
    return (
       <div className='job-list'>
-         {data.map(item => (
+         {jobPositions.map((item) => (
             <JobPosition key={item.id} {...item} />
          ))}
       </div>
-   )
-}
-
-export {JobList};
+   );
+};
