@@ -17,8 +17,9 @@ const JobPosition = ({
    location,
    languages,
    tools,
+   handleAddFilter,
 }) => {
-   const badges = [].concat(role, level, ...languages, ...tools);
+   const filtersList = [].concat(role, level, ...languages, ...tools);
 
    return (
       <Card isFeatured={featured}>
@@ -52,8 +53,10 @@ const JobPosition = ({
                </div>
             </div>
             <Stack>
-               {badges.map((item) => (
-                  <Badge key={item}>{item}</Badge>
+               {filtersList.map((filter) => (
+                  <Badge key={filter} onClick={() => handleAddFilter(filter)}>
+                     {filter}
+                  </Badge>
                ))}
             </Stack>
          </div>
@@ -77,4 +80,5 @@ JobPosition.propTypes = {
    location: PropTypes.string,
    languages: PropTypes.arrayOf(PropTypes.string),
    tools: PropTypes.arrayOf(PropTypes.string),
+   handleAddFilter: PropTypes.func,
 };

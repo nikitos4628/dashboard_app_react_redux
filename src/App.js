@@ -5,7 +5,7 @@ import { FilterPanel } from 'components/FilterPanel';
 import { JobList } from 'components/JobList';
 import { TheHeader } from 'components/TheHeader';
 
-import { addPositions } from 'store/positions/position-actions';
+import { addJobPositions } from 'store/jobPositions/job-position-actions';
 
 import data from './mock/data.json';
 
@@ -13,7 +13,7 @@ function App() {
    const dispatch = useDispatch();
 
    useEffect(() => {
-      dispatch(addPositions(data));
+      dispatch(addJobPositions(data));
    });
    return (
       <>
